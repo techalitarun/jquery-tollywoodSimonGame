@@ -1,0 +1,65 @@
+body {
+  text-align: center;
+  background-image: url(../images/bg3-resize.jpg);
+}
+
+#level-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  5%;
+  color: #FEF2BF;
+}
+
+.container {
+  /*display: block;
+  width: 50%;
+  margin: auto;*/
+
+}
+
+.btn {
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 30%;
+}
+
+.success {
+  background-image: url(../images/chiru.png);
+}
+.game-over {
+  background-image: url(../images/balayya.png);
+  opacity: 0.8;
+}
+
+.pk {
+  background-image: url(../images/pk.jpg);
+}
+
+.mb {
+  background-image: url(../images/mb.jpg);
+}
+
+.rc {
+  background-image: url(../images/rc.jpg);
+}
+
+.aa {
+  background-image: url(../images/aa.jpg);
+}
+
+.ntr {
+  background-image: url(../images/ntr.jpg);
+}
+
+.pb {
+  background-image: url(../images/pb.jpg);
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+  opacity:0.5;
+}
