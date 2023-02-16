@@ -27,35 +27,35 @@ body {
 }
 
 .success {
-  background-image: url(../images/chiru.png);
+  background-image: url(./images/chiru.png);
 }
 .game-over {
-  background-image: url(../images/balayya.png);
+  background-image: url(./images/balayya.png);
   opacity: 0.8;
 }
 
 .pk {
-  background-image: url(../images/pk.jpg);
+  background-image: url(./images/pk.jpg);
 }
 
 .mb {
-  background-image: url(../images/mb.jpg);
+  background-image: url(./images/mb.jpg);
 }
 
 .rc {
-  background-image: url(../images/rc.jpg);
+  background-image: url(./images/rc.jpg);
 }
 
 .aa {
-  background-image: url(../images/aa.jpg);
+  background-image: url(./images/aa.jpg);
 }
 
 .ntr {
-  background-image: url(../images/ntr.jpg);
+  background-image: url(./images/ntr.jpg);
 }
 
 .pb {
-  background-image: url(../images/pb.jpg);
+  background-image: url(./images/pb.jpg);
 }
 
 .pressed {
