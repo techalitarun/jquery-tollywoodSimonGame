@@ -87,12 +87,15 @@ function check(){
     if(gamePattern[ind]!=userClickedPattern[ind]){
         gamePattern.length=0;
         level=0;
-        $("h1").text("Game Over,Press any key to start");
+        $("h1").text("Game Over");
+        $("h1").css("color","red");
         var wrong = new Audio("sounds/error-sound.mp3.mp3");
         wrong.play();
         $(".btn").hide();
         $("body").addClass("game-over");
         setTimeout(function(){
+            $("h1").text("Press any key to start");
+            $("h1").css("color","#FEF2BF");
             $("body").removeClass("game-over");
             $(".btn").show();
         },1000);
