@@ -1,5 +1,6 @@
 
-var level =0, flag=0;
+
+var level =0, flag=0, ind=-1;
 var gamePattern = [];
 var userClickedPattern = [];
 var buttonActors = ["pk","mb","rc","aa","ntr","pb"];
@@ -9,6 +10,7 @@ var buttonActors = ["pk","mb","rc","aa","ntr","pb"];
 $(".btn").click(function(){
     
     var userChosenActor = $(this).attr("id");
+    ind++;
     animatPress(userChosenActor);
     playsound(userChosenActor);
     console.log(userChosenActor);
@@ -16,31 +18,21 @@ $(".btn").click(function(){
     userClickedPattern.push(userChosenActor);
     
     console.log(userClickedPattern);
-
-    if(userClickedPattern.length===gamePattern.length){
-        check();
-    }
-    });
+    console.log(gamePattern);
+    check();
+});
 
 
 function nextSequence(){
     
     $("h1").text("Level "+level);
-    if(level===10){
-        var success = new Audio("sounds/success-sound.mp3");
-        success.play();
-        $(".btn").hide();
-        $("body").addClass("success");
-        setTimeout(function(){
-            $("body").removeClass("success");
-            $(".btn").show();
-        },1000);
-    }
     var randomNumber = Math.floor(Math.random()*6);
     var randomChosenActor = buttonActors[randomNumber];
     
     gamePattern.push(randomChosenActor);
     $("#"+randomChosenActor).animate({opacity:0.25},200).animate({opacity:1},200);
+    userClickedPattern.length=0;
+    ind=-1;
     level++;
 }
 
@@ -88,32 +80,30 @@ function animatPress(currentActor){
         $("#"+currentActor).removeClass("pressed");
     },100);
 }
+
+    
+
 function check(){
-    for(var i=0;i<level;i++){
-        if(gamePattern[i]!=userClickedPattern[i] || userClickedPattern.length==0){
-            gamePattern.length=0;
-            level=0;
-            $("h1").text("Game Over,Press any key to start");
-            var wrong = new Audio("sounds/error-sound.mp3.mp3");
-            wrong.play();
-            $(".btn").hide();
-            $("body").addClass("game-over");
-            setTimeout(function(){
-                $("body").removeClass("game-over");
-                $(".btn").show();
-            },1000);
+    if(gamePattern[ind]!=userClickedPattern[ind]){
+        gamePattern.length=0;
+        level=0;
+        $("h1").text("Game Over,Press any key to start");
+        var wrong = new Audio("sounds/error-sound.mp3.mp3");
+        wrong.play();
+        $(".btn").hide();
+        $("body").addClass("game-over");
+        setTimeout(function(){
+            $("body").removeClass("game-over");
+            $(".btn").show();
+        },1000);
 
-            flag=0;
-        }
-
+        flag=0;
     }
-    userClickedPattern.length=0;
-    if(gamePattern.length!=0){
+    if(flag!=0 && userClickedPattern.length===gamePattern.length){
         nextSequence();
     }
-    
 }
-    
+
 $(document).keydown(function(){
 if(flag===0){
     flag=1;
